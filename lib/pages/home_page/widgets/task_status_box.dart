@@ -1,5 +1,5 @@
 import 'package:eisenhower_matrix/generated/l10n.dart';
-import 'package:eisenhower_matrix/ui_style_constants.dart';
+import 'package:eisenhower_matrix/ui_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:radio_grouped_buttons/custom_buttons/custom_radio_buttons_group.dart';
 

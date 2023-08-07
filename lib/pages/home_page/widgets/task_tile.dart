@@ -1,4 +1,4 @@
-import 'package:eisenhower_matrix/ui_style_constants.dart';
+import 'package:eisenhower_matrix/ui_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
@@ -20,7 +20,7 @@ class TaskTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // TODO:
+        // show dialog for editing
         void Function(BuildContext, int, int) onEditTap = GetIt.I<Function(BuildContext, int, int)>();
         onEditTap(context, fieldIndex, index);
       },

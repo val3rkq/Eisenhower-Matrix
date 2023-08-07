@@ -1,4 +1,4 @@
-import 'package:eisenhower_matrix/ui_style_constants.dart';
+import 'package:eisenhower_matrix/ui_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:eisenhower_matrix/pages/home_page/services.dart';
 import 'field_text.dart';
@@ -13,7 +13,7 @@ class Field extends StatelessWidget {
     required this.data,
   });
 
-  final Map<int, dynamic> data;
+  final data;
   final int fieldIndex;
   final int selectedFieldIndex;
   final Function()? changeField;

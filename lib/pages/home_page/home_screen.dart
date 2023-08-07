@@ -1,9 +1,12 @@
 import 'package:another_flushbar/flushbar.dart';
+import 'package:eisenhower_matrix/constants.dart';
+import 'package:eisenhower_matrix/database/db.dart';
 import 'package:eisenhower_matrix/generated/l10n.dart';
 import 'package:eisenhower_matrix/pages/home_page/widgets/all.dart';
-import 'package:eisenhower_matrix/ui_style_constants.dart';
+import 'package:eisenhower_matrix/ui_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'services.dart';
 
 class HomePage extends StatefulWidget {
@@ -14,20 +17,18 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Map<int, dynamic> data = {
-    1: [],
-    2: [],
-    3: [],
-    4: [],
-  };
 
+  // database
+  DB db = DB();
+  var box = Hive.box(boxName);
+
+  // initial data
   int selectedField = 1;
+  bool isUrgent = true;
+  bool isImportant = true;
 
   // controller
   TextEditingController taskController = TextEditingController();
-
-  bool isUrgent = true;
-  bool isImportant = true;
 
   void onUrgentBtnTap(int index) {
     setState(() {
@@ -59,10 +60,9 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  // TODO
   void onEditTap(BuildContext context, int fieldIndex, int index) {
     setState(() {
-      taskController.text = data[fieldIndex][index].toString();
+      taskController.text = db.data[fieldIndex][index].toString();
     });
     // show dialog for edit
     showDialog(
@@ -96,33 +96,43 @@ class _HomePageState extends State<HomePage> {
 
   void addNewTask() {
     setState(() {
-      data[getIndexForData(isUrgent, isImportant)]
+      db.data[getIndexForData(isUrgent, isImportant)]
           .add(taskController.text.trim().toString());
     });
+    db.updateDB();
     _closeDialog();
-  }
-
-  void deleteTask(int fieldIndex, int index) {
-    setState(() {
-      data[fieldIndex].removeAt(index);
-    });
   }
 
   void editTask(int fieldIndex, int index, int newFieldIndex) {
     setState(() {
       if (fieldIndex != newFieldIndex) {
-        data[fieldIndex].removeAt(index);
-        data[newFieldIndex].add(taskController.text);
+        db.data[fieldIndex].removeAt(index);
+        db.data[newFieldIndex].add(taskController.text);
       } else {
-        data[fieldIndex][index] = taskController.text;
+        db.data[fieldIndex][index] = taskController.text;
       }
     });
     _closeDialog();
+    db.updateDB();
+  }
+
+  void deleteTask(int fieldIndex, int index) {
+    setState(() {
+      db.data[fieldIndex].removeAt(index);
+    });
+    db.updateDB();
   }
 
   @override
   void initState() {
     super.initState();
+
+    if (box.get('DATA') == null) {
+      db.initData();
+    } else {
+      db.getData();
+    }
+
     GetIt.I.registerSingleton<Function(int, int)>(deleteTask);
     GetIt.I.registerSingleton<Function(BuildContext, int, int)>(onEditTap);
   }
@@ -159,7 +169,7 @@ class _HomePageState extends State<HomePage> {
                 Fields(
                   changeFieldOnTap: changeFieldOnTap,
                   selectedField: selectedField,
-                  data: data,
+                  data: db.data,
                 ),
 
                 // ADD - button

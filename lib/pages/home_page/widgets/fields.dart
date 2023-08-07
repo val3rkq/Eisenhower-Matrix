@@ -12,7 +12,7 @@ class Fields extends StatelessWidget {
 
   final Function(int) changeFieldOnTap;
   final int selectedField;
-  final Map<int, dynamic> data;
+  final data;
 
   @override
   Widget build(BuildContext context) {

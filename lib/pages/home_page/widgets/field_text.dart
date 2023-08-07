@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:eisenhower_matrix/pages/home_page/services.dart';
-import 'package:eisenhower_matrix/ui_style_constants.dart';
+import 'package:eisenhower_matrix/ui_constants.dart';
 
 class FieldText extends StatelessWidget {
   const FieldText({

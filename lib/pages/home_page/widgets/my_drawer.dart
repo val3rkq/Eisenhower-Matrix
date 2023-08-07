@@ -2,7 +2,7 @@ import 'package:eisenhower_matrix/generated/l10n.dart';
 import 'package:eisenhower_matrix/pages/about_page/about_screen.dart';
 import 'package:eisenhower_matrix/pages/done_tasks_page/done_task_screen.dart';
 import 'package:eisenhower_matrix/pages/settings_page/settings_screen.dart';
-import 'package:eisenhower_matrix/ui_style_constants.dart';
+import 'package:eisenhower_matrix/ui_constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';

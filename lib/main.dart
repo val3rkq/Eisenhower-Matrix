@@ -1,11 +1,15 @@
+import 'package:eisenhower_matrix/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 
 import 'generated/l10n.dart';
 import 'pages/home_page/home_screen.dart';
-import 'ui_style_constants.dart';
+import 'ui_constants.dart';
 
-void main() {
+void main() async {
+  await Hive.initFlutter();
+  var box = await Hive.openBox(boxName);
   runApp(const MyApp());
 }
 

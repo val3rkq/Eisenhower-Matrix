@@ -1,4 +1,4 @@
-import 'package:eisenhower_matrix/ui_style_constants.dart';
+import 'package:eisenhower_matrix/ui_constants.dart';
 import 'package:flutter/material.dart';
 
 class DeleteTaskBtn extends StatelessWidget {
