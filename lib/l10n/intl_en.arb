@@ -1,0 +1,22 @@
+{
+  "app_name": "Eisenhower Matrix",
+  "tagline": "Boost your productivity",
+  "write_task": "Write the task",
+  "choose_group": "Choose group for your task",
+  "hint": "Your Task..",
+  "task_is_empty": "Task can't be empty",
+
+  "is_this_task": "Is this task {text}?",
+  "urgent": "urgent",
+  "important": "important",
+  "cancel": "Cancel",
+  "add": "Add",
+  "edit": "Edit",
+  "no": "No",
+  "yes": "Yes",
+
+  "done_tasks": "Done Tasks",
+  "settings": "Settings",
+  "about": "About",
+  "not": "not"
+}
