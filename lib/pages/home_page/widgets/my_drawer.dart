@@ -110,15 +110,13 @@ class MyDrawer extends StatelessWidget {
                           );
                         },
                       ),
-                      const SizedBox(
-                        height: 100,
-                      ),
-                      Center(
+                      const SizedBox(height: 70,),
+                      MediaQuery.of(context).orientation == Orientation.portrait ? Center(
                         child: Lottie.asset(
                           'assets/lottie/main.json',
-                          width: MediaQuery.of(context).size.width * 0.6,
+                          width: 300,
                         ),
-                      ),
+                      ) : const SizedBox(),
                     ],
                   ),
                 ),

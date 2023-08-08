@@ -10,6 +10,7 @@ import 'ui_constants.dart';
 void main() async {
   await Hive.initFlutter();
   var box = await Hive.openBox(boxName);
+  // await box.deleteAll(box.keys);
   runApp(const MyApp());
 }
 

@@ -1,1 +1,1 @@
-String boxName = '_BOX';
+String boxName = 'B_O_X';

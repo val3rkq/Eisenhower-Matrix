@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "about" : MessageLookupByLibrary.simpleMessage("About"),
+    "accept" : MessageLookupByLibrary.simpleMessage("Are you sure?"),
     "add" : MessageLookupByLibrary.simpleMessage("Add"),
     "app_name" : MessageLookupByLibrary.simpleMessage("Eisenhower Matrix"),
     "cancel" : MessageLookupByLibrary.simpleMessage("Cancel"),
@@ -36,6 +37,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "no" : MessageLookupByLibrary.simpleMessage("No"),
     "not" : MessageLookupByLibrary.simpleMessage("not"),
     "settings" : MessageLookupByLibrary.simpleMessage("Settings"),
+    "tag_as_done" : MessageLookupByLibrary.simpleMessage("Tag as "),
     "tagline" : MessageLookupByLibrary.simpleMessage("Boost your productivity"),
     "task_is_empty" : MessageLookupByLibrary.simpleMessage("Task can\'t be empty"),
     "urgent" : MessageLookupByLibrary.simpleMessage("urgent"),

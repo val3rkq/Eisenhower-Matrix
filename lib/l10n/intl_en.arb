@@ -18,5 +18,7 @@
   "done_tasks": "Done Tasks",
   "settings": "Settings",
   "about": "About",
-  "not": "not"
+  "not": "not",
+  "accept": "Are you sure?",
+  "tag_as_done": "Tag as "
 }

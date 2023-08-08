@@ -17,7 +17,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   // database
   DB db = DB();
   var box = Hive.box(boxName);
@@ -50,6 +49,45 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
+  void changeFieldOnTap(int fieldIndex) {
+    setState(() {
+      selectedField = fieldIndex;
+      switch (selectedField) {
+        case 1:
+          isUrgent = true;
+          isImportant = true;
+        case 2:
+          isUrgent = false;
+          isImportant = true;
+        case 3:
+          isUrgent = true;
+          isImportant = false;
+        default:
+          isUrgent = false;
+          isImportant = false;
+      }
+    });
+  }
+
+  void getFieldIndex() {
+    // change values
+    setState(() {
+      if (isUrgent) {
+        if (isImportant) {
+          selectedField = 1;
+        } else {
+          selectedField = 3;
+        }
+      } else {
+        if (isImportant) {
+          selectedField = 2;
+        } else {
+          selectedField = 4;
+        }
+      }
+    });
+  }
+
   void onAddBtnTap() {
     // show dialog
     showDialog(
@@ -74,30 +112,10 @@ class _HomePageState extends State<HomePage> {
     });
   }
 
-  void changeFieldOnTap(int fieldIndex) {
-    setState(() {
-      selectedField = fieldIndex;
-      switch (selectedField) {
-        case 1:
-          isUrgent = true;
-          isImportant = true;
-        case 2:
-          isUrgent = false;
-          isImportant = true;
-        case 3:
-          isUrgent = true;
-          isImportant = false;
-        default:
-          isUrgent = false;
-          isImportant = false;
-      }
-    });
-  }
-
   void addNewTask() {
     setState(() {
       db.data[getIndexForData(isUrgent, isImportant)]
-          .add(taskController.text.trim().toString());
+          .insert(0, taskController.text.trim().toString());
     });
     db.updateDB();
     _closeDialog();
@@ -107,9 +125,9 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       if (fieldIndex != newFieldIndex) {
         db.data[fieldIndex].removeAt(index);
-        db.data[newFieldIndex].add(taskController.text);
+        db.data[newFieldIndex].insert(0, taskController.text.trim().toString());
       } else {
-        db.data[fieldIndex][index] = taskController.text;
+        db.data[fieldIndex][index] = taskController.text.trim().toString();
       }
     });
     _closeDialog();
@@ -126,7 +144,6 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     super.initState();
-
     if (box.get('DATA') == null) {
       db.initData();
     } else {
@@ -145,13 +162,25 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    db.getData();
     return Scaffold(
       drawer: const MyDrawer(),
       appBar: AppBar(
-        iconTheme: const IconThemeData(color: Colors.black),
-        title: Text(S.of(context).app_name),
-        toolbarHeight: 50,
-      ),
+          iconTheme: const IconThemeData(color: Colors.black),
+          title: Text(S.of(context).app_name),
+          toolbarHeight: 50,
+          actions: [
+            IconButton(
+              onPressed: () {
+                setState(() {});
+              },
+              icon: const Icon(
+                Icons.update_rounded,
+                size: 25,
+                color: Colors.black,
+              ),
+            ),
+          ]),
       body: Column(
         children: [
           // tagline
@@ -183,7 +212,7 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-  
+
   Widget _showDialog(BuildContext context,
       {isEdit = false, fieldIndex = -1, index = -1}) {
     return Dialog(
@@ -227,8 +256,9 @@ class _HomePageState extends State<HomePage> {
               checkUrgency: true,
               text: S.of(context).urgent,
               onBtnTap: (index) => onUrgentBtnTap(index),
-              isImportant: isImportant,
-              isUrgent: isUrgent,
+              isImportant:
+                  isEdit ? fieldIndex == 1 || fieldIndex == 2 : isImportant,
+              isUrgent: isEdit ? fieldIndex == 1 || fieldIndex == 3 : isUrgent,
             ),
 
             // check importance
@@ -236,8 +266,9 @@ class _HomePageState extends State<HomePage> {
               checkUrgency: false,
               text: S.of(context).important,
               onBtnTap: (index) => onImportantBtnTap(index),
-              isImportant: isImportant,
-              isUrgent: isUrgent,
+              isImportant:
+                  isEdit ? fieldIndex == 1 || fieldIndex == 2 : isImportant,
+              isUrgent: isEdit ? fieldIndex == 1 || fieldIndex == 3 : isUrgent,
             ),
 
             const SizedBox(
@@ -280,7 +311,7 @@ class _HomePageState extends State<HomePage> {
                   },
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),
@@ -290,20 +321,6 @@ class _HomePageState extends State<HomePage> {
   void _closeDialog() {
     Navigator.of(context).pop();
     taskController.clear();
-    // change values
-    switch (selectedField) {
-      case 1:
-        isUrgent = true;
-        isImportant = true;
-      case 2:
-        isUrgent = false;
-        isImportant = true;
-      case 3:
-        isUrgent = true;
-        isImportant = false;
-      default:
-        isUrgent = false;
-        isImportant = false;
-    }
+    getFieldIndex();
   }
 }

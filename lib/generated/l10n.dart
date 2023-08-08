@@ -226,6 +226,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Are you sure?`
+  String get accept {
+    return Intl.message(
+      'Are you sure?',
+      name: 'accept',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Tag as `
+  String get tag_as_done {
+    return Intl.message(
+      'Tag as ',
+      name: 'tag_as_done',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -10,7 +10,7 @@ Color mainColor = const Color(0xFFBC0000);
 TextStyle bodyTextStyle = TextStyle(
   fontWeight: FontWeight.bold,
   fontSize: 20,
-  color: Colors.grey.shade800
+  color: Colors.grey.shade900
 );
 
 const appBarTextStyle = TextStyle(
@@ -38,6 +38,12 @@ const drawerTileTextStyle = TextStyle(
 const mediumTextStyle = TextStyle(
   fontWeight: FontWeight.bold,
   fontSize: 16,
+  fontFamily: 'Roboto',
+);
+
+const defaultTextStyle = TextStyle(
+  fontWeight: FontWeight.bold,
+  fontSize: 20,
   fontFamily: 'Roboto',
 );
 
