@@ -3,7 +3,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 class DB {
   var box = Hive.box(boxName);
-  late var data;
+  var data;
   late List doneTasks;
 
   void initData() {

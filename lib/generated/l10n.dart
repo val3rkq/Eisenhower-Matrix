@@ -237,11 +237,21 @@ class S {
     );
   }
 
-  /// `Tag as `
+  /// `Tag as Done`
   String get tag_as_done {
     return Intl.message(
-      'Tag as ',
+      'Tag as Done',
       name: 'tag_as_done',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Update Matrix`
+  String get update_matrix {
+    return Intl.message(
+      'Update Matrix',
+      name: 'update_matrix',
       desc: '',
       args: [],
     );

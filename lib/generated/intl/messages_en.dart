@@ -37,9 +37,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "no" : MessageLookupByLibrary.simpleMessage("No"),
     "not" : MessageLookupByLibrary.simpleMessage("not"),
     "settings" : MessageLookupByLibrary.simpleMessage("Settings"),
-    "tag_as_done" : MessageLookupByLibrary.simpleMessage("Tag as "),
+    "tag_as_done" : MessageLookupByLibrary.simpleMessage("Tag as Done"),
     "tagline" : MessageLookupByLibrary.simpleMessage("Boost your productivity"),
     "task_is_empty" : MessageLookupByLibrary.simpleMessage("Task can\'t be empty"),
+    "update_matrix" : MessageLookupByLibrary.simpleMessage("Update Matrix"),
     "urgent" : MessageLookupByLibrary.simpleMessage("urgent"),
     "write_task" : MessageLookupByLibrary.simpleMessage("Write the task"),
     "yes" : MessageLookupByLibrary.simpleMessage("Yes")

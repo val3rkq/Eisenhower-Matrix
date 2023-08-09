@@ -115,12 +115,10 @@ class TaskTile extends StatelessWidget {
           ),
         ),
         menuItemStyleData: MenuItemStyleData(
-          customHeights: [
-            50,
-            MediaQuery.of(context).orientation == Orientation.portrait
-                ? 65
-                : 50,
-          ],
+          // customHeights: [
+          //   50,
+          //   // 65,
+          // ],
           padding: const EdgeInsets.fromLTRB(5, 2, 5, 0),
         ),
       ),

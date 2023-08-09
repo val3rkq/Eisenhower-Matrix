@@ -20,5 +20,6 @@
   "about": "About",
   "not": "not",
   "accept": "Are you sure?",
-  "tag_as_done": "Tag as "
+  "tag_as_done": "Tag as Done",
+  "update_matrix": "Update Matrix"
 }

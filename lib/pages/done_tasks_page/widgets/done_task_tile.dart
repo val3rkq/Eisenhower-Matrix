@@ -28,24 +28,32 @@ class DoneTaskTile extends StatelessWidget {
       child: ListTile(
         contentPadding: EdgeInsets.zero,
         title: Text(db.doneTasks[index][0]),
-        subtitle: Text(db.doneTasks[index][1].toString()),
         trailing: SizedBox(
           width: 60,
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               GestureDetector(
                 onTap: onReturnTap,
-                child: const Icon(Icons.update_rounded, color: Colors.black,),
+                child: const Icon(
+                  Icons.update_rounded,
+                  color: Colors.black,
+                ),
               ),
-              const SizedBox(width: 10,),
+              const SizedBox(
+                width: 10,
+              ),
               GestureDetector(
                 onTap: onDeleteTap,
-                child: const Icon(Icons.delete_rounded, color: Colors.black,),
+                child: const Icon(
+                  Icons.delete_rounded,
+                  color: Colors.black,
+                ),
               ),
             ],
           ),
-        )
+        ),
       ),
     );
   }

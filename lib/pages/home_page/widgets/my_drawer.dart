@@ -43,7 +43,10 @@ class MyDrawer extends StatelessWidget {
                           onTap: () {
                             Navigator.of(context).pop();
                           },
-                          child: const Icon(Icons.arrow_circle_left, size: 30,),
+                          child: const Icon(
+                            Icons.arrow_circle_left,
+                            size: 30,
+                          ),
                         ),
                       ],
                     ),
@@ -110,13 +113,17 @@ class MyDrawer extends StatelessWidget {
                           );
                         },
                       ),
-                      const SizedBox(height: 70,),
-                      MediaQuery.of(context).orientation == Orientation.portrait ? Center(
-                        child: Lottie.asset(
-                          'assets/lottie/main.json',
-                          width: 300,
-                        ),
-                      ) : const SizedBox(),
+                      const SizedBox(
+                        height: 70,
+                      ),
+                      MediaQuery.of(context).orientation == Orientation.portrait
+                          ? Center(
+                              child: Lottie.asset(
+                                'assets/lottie/main.json',
+                                width: 300,
+                              ),
+                            )
+                          : const SizedBox(),
                     ],
                   ),
                 ),
