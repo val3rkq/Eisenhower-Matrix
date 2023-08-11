@@ -64,21 +64,6 @@ class _DoneTaskPageState extends State<DoneTaskPage> {
       appBar: AppBar(
         backgroundColor: mainColor,
         centerTitle: true,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-            if (isDataUpdated) {
-              Flushbar(
-                backgroundColor: Colors.white,
-                messageColor: Colors.black,
-                message: S.of(context).update_matrix,
-                icon: const Icon(Icons.update_rounded),
-                duration: const Duration(seconds: 2),
-              ).show(context);
-            }
-          },
-          icon: const Icon(Icons.arrow_back),
-        ),
         title: Text(
           S.of(context).done_tasks,
           style: appBarWhiteTextStyle,

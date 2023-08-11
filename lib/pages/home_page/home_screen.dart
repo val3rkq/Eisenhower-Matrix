@@ -164,23 +164,16 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     db.getData();
     return Scaffold(
-      drawer: const MyDrawer(),
+      drawer: MyDrawer(
+        updateHomeScreen: () {
+          setState(() {});
+        },
+      ),
       appBar: AppBar(
-          iconTheme: const IconThemeData(color: Colors.black),
-          title: Text(S.of(context).app_name),
-          toolbarHeight: 50,
-          actions: [
-            IconButton(
-              onPressed: () {
-                setState(() {});
-              },
-              icon: const Icon(
-                Icons.update_rounded,
-                size: 25,
-                color: Colors.black,
-              ),
-            ),
-          ]),
+        iconTheme: const IconThemeData(color: Colors.black),
+        title: Text(S.of(context).app_name),
+        toolbarHeight: 50,
+      ),
       body: Column(
         children: [
           // tagline

@@ -10,7 +10,10 @@ import 'package:lottie/lottie.dart';
 class MyDrawer extends StatelessWidget {
   const MyDrawer({
     super.key,
+    required this.updateHomeScreen,
   });
+
+  final Function() updateHomeScreen;
 
   @override
   Widget build(BuildContext context) {
@@ -76,7 +79,7 @@ class MyDrawer extends StatelessWidget {
                             CupertinoPageRoute(
                               builder: (context) => const DoneTaskPage(),
                             ),
-                          );
+                          ).then((value) => updateHomeScreen());
                         },
                       ),
                       ListTile(
