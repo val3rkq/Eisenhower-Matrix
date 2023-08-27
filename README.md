@@ -1,5 +1,5 @@
 # Eisenhower Matrix App
-The Eisenhower Matrix Flutter App is a productivity tool developed using the Flutter framework. It helps users effectively prioritize tasks and make decisions by categorizing them into four quadrants based on their urgency and importance, as popularized by the Eisenhower Matrix.
+The Eisenhower Matrix Flutter App is a productivity tool developed using the Flutter framework. It helps users effectively prioritize tasks and make decisions by categorizing them into four quadrants based on their urgency and importance, as popularized by the Eisenhower Matrix. This app also has Hive Datebase.
 
 ## Features
 = Add tasks and categorize them into quadrants: Urgent & Important, Not Urgent & Important, Urgent & Not Important, Not Urgent & Not Important.
