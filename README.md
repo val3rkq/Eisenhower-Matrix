@@ -7,10 +7,6 @@ The Eisenhower Matrix Flutter App is a productivity tool developed using the Flu
 = Mark tasks as completed and remove them from the matrix.
 = Intuitive user interface.
 
-## Installation
-Since this application has not yet been uploaded to google play, you can install it by downloading this ZIP-file on your phone 
-Link on Google Drive: https://drive.google.com/drive/folders/1gZZ-aVJcUGkZ1crP1rF42xHvKsVEdDDH?usp=drive_link
-
 ## License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
