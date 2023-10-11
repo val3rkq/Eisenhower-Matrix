@@ -14,6 +14,3 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 Special thanks to the productivity community for inspiring and guiding the development of this app. We extend our gratitude to the Flutter community for providing a powerful framework to build cross-platform applications.
 
 ## Screenshots
-![Screenshot_20230827_212836](https://github.com/val3rkq/Eisenhower-Matrix/assets/87361814/8d46a1e2-a7ae-4020-8de7-03e3b22d3bc8)
-![Screenshot_20230827_212954](https://github.com/val3rkq/Eisenhower-Matrix/assets/87361814/7d062580-ee09-444f-8457-27692813c889)
-![Screenshot_20230827_212939](https://github.com/val3rkq/Eisenhower-Matrix/assets/87361814/cc150cc3-cd8d-4a29-92b6-517fd2f6275b)
